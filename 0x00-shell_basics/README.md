@@ -3,3 +3,4 @@
 0-current_working_directory - Writr a script that print the absolute path name of the current working directory.
 
 1-listit - Display the contents list of your current directory.
+2-bring_me_home - Write a scrpt that changes the working directory to user's home directory. You are not allow to use any shell variable
