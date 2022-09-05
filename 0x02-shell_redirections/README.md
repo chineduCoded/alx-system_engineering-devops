@@ -19,3 +19,4 @@
 **18-letteronly** - Display all lines of the file /etc/ssh/sshd_config starting with a letter. Include capital letters as well.<br/><br/>
 **19-AZ** - Replace all characters A and c from input to Z and e respectively.<br/><br/>
 **20-hiago** - A script that removes all letters c and C from input.<br/><br/>
+**21-reverse** - Write a script that reverse its input.<br/><br/>
