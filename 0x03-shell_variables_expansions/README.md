@@ -8,3 +8,4 @@
 **6-create_local_variable** - Create a script that creates a new local variable. Name: BEST, Value: School.<br/><br/>
 **7-create_global_variable** - Create a script that creates a new global variable. Name: BEST, Value: School.<br/><br/>
 **8-true_knowledge** - Write a script that prints the result of the addition of 128 with the value stored in the environment variable TRUEKNOWLEDGE, followed by a new line.<br/><br/>
+**9-divide_and_rule** - Write a script that prints the result of POWER divided by DIVIDE, followed by a new line. POWER and DIVIDE are environment variables.<br/><br/>
