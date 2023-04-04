@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This script installs and configures Nginx server with a custom header and creates an index.html and 404.html page
 
-sudo sed -euo pipefail  # exit script immediately if a command fails or an undefined variable is used
+sudo set -euo pipefail  # exit script immediately if a command fails or an undefined variable is used
 
 # Update package list and install Nginx
 sudo apt-get update -yq && sudo apt-get install -yq nginx
