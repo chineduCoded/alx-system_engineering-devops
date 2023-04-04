@@ -32,7 +32,7 @@ if [[ -z $FIND ]]; then
 fi
 
 # Test configuration
-nginx -t
+# nginx -t
 
 # Reload nginx
 service nginx restart
