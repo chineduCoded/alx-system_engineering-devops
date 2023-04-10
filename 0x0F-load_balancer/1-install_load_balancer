@@ -9,12 +9,12 @@ sudo apt-get -y install haproxy
 echo '
 frontend realchinedcode.tech
         bind 0:80
-        default_backend web_servers
+        default_backend realchinedcode.tech_backend
 
-backend web_servers
+backend realchinedcode.tech_backend
         balance roundrobin
-        server 143984-web-01 54.158.79.124:80 check
-        server 143984-web-02 54.146.64.149:80 check
+        server 143984-web-01 54.162.41.114:80 check
+        server 143984-web-02 3.83.253.198:80 check
 ' >> /etc/haproxy/haproxy.cfg
 
 # Restart HAproxy service
