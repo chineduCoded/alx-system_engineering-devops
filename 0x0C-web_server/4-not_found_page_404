@@ -1,4 +1,5 @@
- bash script that installs nginx on an ubuntu machine.
+#!/usr/bin/env bash
+# A bash script that installs nginx on an ubuntu machine.
 # This scripts also configures the default webpage served to be "Hello World!"
 # When request url matches /redirect_me, it redirects to my youtube channel.
 # When a page/file not found in the document root is requested, the 404.html
@@ -12,7 +13,7 @@ echo "Hello World!" | sudo dd status=none of=/var/www/html/index.html
 
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html > /dev/null
 
-NEW_RULE="\\\n\tlocation = /redirect_me {\n\t\t return 301 https://www.youtube.com/@chineduelijah9785;\n\t}\n"
+NEW_RULE="\\\n\tlocation /redirect_me {\n\t\t return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n"
 
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.backup
 
