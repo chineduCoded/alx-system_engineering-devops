@@ -9,7 +9,8 @@ if __name__ == "__main__":
     base_url = "https://jsonplaceholder.typicode.com/"
     employee = requests.get(base_url + "users/{}".format(employee_id)).json()
     username = employee.get("username")
-    todos = requests.get(base_url + "todos", params={"userId": employee_id}).json()
+    todos = requests.get(
+            base_url + "todos", params={"userId": employee_id}).json()
 
     with open("{}.csv".format(employee_id), "w", newline="") as csvfile:
         writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
