@@ -28,7 +28,10 @@ if __name__ == "__main__":
             for title in todo
             if title.get('completed') is True
     ]
+    EMPLOYEE_NAME = employee_id.get("name")
+    NUMBER_OF_DONE_TASKS = len(completed)
+    TOTAL_NUMBER_OF_TASKS = len(todo)
 
     print("Employee {} is done with tasks({}/{}):".format(
-        employee_id.get("name"), len(completed), len(todo)))
-    [print("\t {}".format(title)) for title in completed]
+        EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS, TOTAL_NUMBER_OF_TASKS))
+    [print('\t {}'.format(title)) for title in completed]
