@@ -1,32 +1,38 @@
 #!/usr/bin/python3
 """
 Script that, using this REST API, for a given employee ID, returns
-information about his/her TODO list progress.
+information about his/her TODO list progress
 """
+import urllib.request
+import json
 import sys
-import requests
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: {} employee_id".format(sys.argv[0]))
-        exit(1)
+    if len(sys.argv) != 2:
+        print("Usage: {} EMPLOYEE_ID".format(sys.argv[0]))
+        sys.exit(1)
 
-    employee_id = sys.argv[1]
-    base_url = "https://jsonplaceholder.typicode.com/users"
-    response = requests.get("{}/{}/todos".format(base_url, employee_id))
+    EMPLOYEE_ID = sys.argv[1]
 
-    if response.status_code != 200:
-        print("Error: Invalid employee ID")
-        exit(1)
+    # Make request to API and load response into JSON object
+    with urllib.request.urlopen(
+            'https://jsonplaceholder.typicode.com/users/{}'
+            .format(EMPLOYEE_ID)) as response:
+        employee_data = json.loads(response.read().decode())
 
-    data = response.json()
-    employee_name = requests.get("{}/{}".format(
-        base_url, employee_id)).json()["name"]
-    total_tasks = len(data)
-    completed_tasks = sum([1 for task in data if task["completed"]])
-    task_titles = [task["title"] for task in data if task["completed"]]
+    with urllib.request.urlopen(
+            'https://jsonplaceholder.typicode.com/todos?userId={}'
+            .format(EMPLOYEE_ID)) as response:
+        todos_data = json.loads(response.read().decode())
 
+    # Extract relevant data from JSON object
+    employee_name = employee_data['name']
+    total_tasks = len(todos_data)
+    done_tasks = sum(1 for todo in todos_data if todo['completed'])
+    task_titles = [todo['title'] for todo in todos_data if todo['completed']]
+
+    # Print results in desired format
     print("Employee {} is done with tasks({}/{}):".format(
-        employee_name, completed_tasks, total_tasks))
-    for title in task_titles:
-        print("\t {}".format(title))
+        employee_name, done_tasks, total_tasks))
+    for task_title in task_titles:
+        print("\t {}".format(task_title))
