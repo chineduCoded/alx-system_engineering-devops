@@ -5,9 +5,8 @@ Count words in all hot posts of a given Reddit subreddit
 import requests
 
 
-def count_words(subreddit, word_list, instances=None, after=None, count=0):
-    """
-    Prints counts of given words found in hot posts of a given subreddit.
+def count_words(subreddit, word_list, instances={}, after="", count=0):
+    """Prints counts of given words found in hot posts of a given subreddit.
     Args:
         subreddit (str): The subreddit to search.
         word_list (list): The list of words to search for in post titles.
@@ -15,25 +14,17 @@ def count_words(subreddit, word_list, instances=None, after=None, count=0):
         after (str): The parameter for the next page of the API results.
         count (int): The parameter of results matched thus far.
     """
-    if instances is None:
-        instances = {}
-
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json"
+    url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
     headers = {
-            "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64)"
+        "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/bdov_)"
     }
     params = {
         "after": after,
         "count": count,
         "limit": 100
     }
-    response = requests.get(
-            url,
-            headers=headers,
-            params=params,
-            allow_redirects=False
-    )
-
+    response = requests.get(url, headers=headers, params=params,
+                            allow_redirects=False)
     try:
         results = response.json()
         if response.status_code == 404:
@@ -43,7 +34,7 @@ def count_words(subreddit, word_list, instances=None, after=None, count=0):
         return
 
     results = results.get("data")
-    after = results.get("atfer")
+    after = results.get("after")
     count += results.get("dist")
     for c in results.get("children"):
         title = c.get("data").get("title").lower().split()
