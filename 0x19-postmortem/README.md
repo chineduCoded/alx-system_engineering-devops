@@ -1,9 +1,9 @@
 # Postmortem: SSH Access Issue on Web Server Resulting in Server Rebuild
 ![Root Cause Analysis Image](https://camo.githubusercontent.com/4a0ccc51dc9c06e80e2d73410af1c1e891b43de55bcdf5e9188d4ade8b542004/68747470733a2f2f74332e667463646e2e6e65742f6a70672f30342f39322f30392f37322f3234305f465f3439323039373234365f79616745387839556b384d3949656b50793747427545307831556f61376573442e6a7067)
 
-> **Date:** 28th March, 2023\
-> **Author:** Okoronkwo Chinedu Elijah\
-> **Status:** Closed
+> **Date: 28th March, 2023**\
+> **Author: Okoronkwo Chinedu Elijah**\
+> **Status: Closed**
 
 ## Summary
 ![Summary image](https://images.pexels.com/photos/6980523/pexels-photo-6980523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)
