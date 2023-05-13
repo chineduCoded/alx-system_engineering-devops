@@ -1,7 +1,6 @@
-#!/usr/bin/python3
-#!fest to fix a bug in wp-setings.php
+# Fix 500 error when a GET HTTP method is requested to Apache web server
 
-exec { 'fix the php extension issue':
-  command => 'sed -i s/phpp/php/g /var/www/html/wp-settings.php',
-  path    => '/usr/local/bin/:/bin/'
-}/usr/bin/python3
+exec {'replace':
+  provider => shell,
+  command  => 'sed -i "s/phpp/php/g" /var/www/html/wp-settings.php'
+}
