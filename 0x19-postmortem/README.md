@@ -1,7 +1,8 @@
 # Postmortem: SSH Access Issue on Web Server Resulting in Server Rebuild
+![Root Cause Analysis Image](https://images.pexels.com/photos/5310564/pexels-photo-5310564.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)
 
-**Date:** 28th March, 2023
-**Author:** Okoronkwo Chinedu Elijah
+**Date:** 28th March, 2023\
+**Author:** Okoronkwo Chinedu Elijah\
 **Status:** Closed
 
 ## Summary
